@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EHCase.Repository.Interfaces
+namespace EHCase.Model
 {
-    public interface IProductLineRepository
+    public class ProductRanking
     {
+
     }
 }

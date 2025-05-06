@@ -13,7 +13,14 @@ namespace EHCase.Repository
         {
             // call database to get the data
             T result = default(T);
-            return result; 
+            return result;
+        }
+
+        public async Task<List<T>> GetListAsync(string sql, params (string key, object value)[] parameters)
+        {
+            // call database to get the data
+            List<T> result = new List<T>();
+            return await Task.FromResult(result);
         }
     }
 }

@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace EHCase.Utilities
 {
+    public enum SortOrder
+    {
+        Asc,
+        Desc
+    }
+
     public class Pagination
     {
         private const int MaxItemsPerPageConst = 1000;
@@ -22,7 +28,7 @@ namespace EHCase.Utilities
             }
             set
             {
-                page = value > MaxItemsPerPageConst ? MaxItemsPerPageConst : value;
+                page = value;
             }
         }
         private int itemPerPage;
