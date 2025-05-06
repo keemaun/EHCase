@@ -28,5 +28,17 @@ namespace EHCase.Repository
 
             return await base.GetListAsync(sql, ("Top", top));
         }
+
+        public async Task<List<Product>> GetTopXRankedProductsAsync(int top)
+        {
+            string sql = $@"
+                SELECT TOP(@Top) Product.*, SUM(ProductRanking.Ranking) AS TotalRank
+                FROM Product
+                LEFT JOIN ProductRanking ON Product.ID = ProductRanking.ProductID
+                GROUP BY Product.ID, Product.Name, Product.Price, Product.Size
+                ORDER BY TotalRank DESC";
+
+            return await base.GetListAsync(sql, ("Top", top));
+        }
     }
 }
